@@ -2,16 +2,34 @@ provider "aws" {
     region  = "us-east-1"
     profile = "default"
 }
-resource "aws_instance" "ec2_jo_225263" {
-    ami = "ami-00e87074e52e6c9f9"
-    instance_type = "t2.micro"
-    key_name = "key-pair-ssh"
-    subnet_id = aws_subnet.vpc_subnet_jo_225263.id
 
+##--INSTANCIA 1--##
+
+resource "aws_instance" "webserver_01" {
+    ami             = var.ami
+    instance_type   = var.instance_type
+    key_name        = var.key_name
+    subnet_id       = aws_subnet.subnet_1_obligatorio.id
+    security_groups = [aws_security_group.security_group_obligatorio.id]
+    /* user_data    = file("C:/Terraform/Obligatorio/webserver.sh") */
+    
     tags = {
-      Name      = "ec2_jo_225263"
+      Name      = "Web Server 01"
       terraform = "True"
     }
-}
+  } 
 
+/*   ##--INSTANCIA 2--##
+resource "aws_instance" "webserver_02" {
+    ami             = var.ami
+    instance_type   = var.instance_type
+    key_name        = var.key_name
+    subnet_id       = aws_subnet.subnet_2_obligatorio.id
+    security_groups = [aws_security_group.security_group_obligatorio.id]
+    user_data       = file("C:/Terraform/Obligatorio/webserver.sh")
 
+    tags = {
+      Name      = "Web Server 02"
+      terraform = "True"
+    }
+} */
