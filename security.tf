@@ -49,3 +49,5 @@ resource "aws_security_group" "db" {
   vpc_id = aws_vpc.vpc_obligatorio.id
   }
 
+## Permitir trafico saliente DB
+

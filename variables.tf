@@ -5,7 +5,7 @@ variable "instance_type" {
 
 variable "ami" {
   description = "AMI"
-  default     = "ami-00e87074e52e6c9f9"
+  default     = "ami-0055d58addfe009d0"
 }
 variable "key_name" {
   description = "Nombre de Key"

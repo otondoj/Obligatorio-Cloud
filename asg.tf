@@ -3,15 +3,11 @@
 resource "aws_autoscaling_group" "asg_webserver" {
   name = "autoscaling_web"
 
-  min_size         = 2
-  desired_capacity = 2
-  max_size         = 3
-
+  min_size          = 2
+  desired_capacity  = 2
+  max_size          = 3
   health_check_type = "ELB"
-  load_balancers = [
-    aws_elb.elastic_load_balancer.id
-  ]
-
+  load_balancers = [aws_elb.elastic_load_balancer.id]
   launch_configuration = aws_launch_configuration.webserver.name
 
   enabled_metrics = [
