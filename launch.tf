@@ -1,3 +1,6 @@
+##--LAUCH CONFIGURATION--##
+
+#############################################################################
 resource "aws_launch_configuration" "webserver" {
   name_prefix = "webserver"
 
@@ -14,3 +17,4 @@ resource "aws_launch_configuration" "webserver" {
     create_before_destroy = true
   }
 }
+#############################################################################
